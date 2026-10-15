@@ -25,7 +25,7 @@ rows=$(( (frames + cols - 1) / cols ))
 
 mkdir -p "$(dirname "$out")"
 # 각 칸 왼쪽 위에 시점(초)을 찍어 두면 "몇 초에 턴이 나오는지"를 바로 읽을 수 있다
-ffmpeg -hide_banner -loglevel error -y -i "$in" \
+ffmpeg -nostdin -hide_banner -loglevel error -y -i "$in" \
   -vf "fps=${rate},scale=240:-2,drawtext=text='%{pts\:hms}':x=6:y=6:fontsize=16:fontcolor=white:box=1:boxcolor=black@0.6,tile=${cols}x${rows}:padding=4:color=black" \
   -frames:v 1 "$out"
 echo "완료: $out (${frames}칸, ${cols}x${rows})"

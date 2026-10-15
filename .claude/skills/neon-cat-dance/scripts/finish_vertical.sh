@@ -66,7 +66,7 @@ if [[ $keep_audio -eq 1 ]]; then
 fi
 
 mkdir -p "$(dirname "$out")"
-ffmpeg -hide_banner -loglevel error -y -i "$in" \
+ffmpeg -nostdin -hide_banner -loglevel error -y -i "$in" \
   -filter_complex "${base}${draw},format=yuv420p[v]" \
   -map "[v]" "${audio_opts[@]}" \
   -c:v libx264 -preset medium -crf 18 -profile:v high -movflags +faststart \

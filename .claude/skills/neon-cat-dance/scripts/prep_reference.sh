@@ -39,7 +39,7 @@ fi
 vf="${crop},scale=trunc(iw/2)*2:trunc(ih/2)*2,fps=30,format=yuv420p"
 
 mkdir -p "$(dirname "$out")"
-ffmpeg -hide_banner -loglevel error -y \
+ffmpeg -nostdin -hide_banner -loglevel error -y \
   -ss "$start" -i "$in" -t "$dur" \
   -vf "$vf" -an \
   -c:v libx264 -preset medium -crf 18 -movflags +faststart \
