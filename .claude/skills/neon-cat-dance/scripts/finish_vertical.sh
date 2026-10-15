@@ -56,7 +56,7 @@ if [[ -n "$captions" ]]; then
       my $s = $w > 0 ? int(960 / $w) : 88; $s = 88 if $s > 88; $s = 40 if $s < 40; print $s')
     draw+=",drawtext=fontfile='${font}':textfile='$work/cap$n.txt':fontsize=${size}:fontcolor=white\
 :borderw=7:bordercolor=0xFF2EC4@0.85:shadowcolor=0x2E9BFF@0.9:shadowx=0:shadowy=6\
-:x=(w-text_w)/2:y=h*0.72:enable='between(t,${s},${e})'"
+:x=(w-text_w)/2:y=h*0.80:enable='between(t,${s},${e})'"
   done < "$captions"
 fi
 
